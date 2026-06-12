@@ -718,6 +718,7 @@ a{color:var(--primary);text-decoration:none}
 <script>
 (function(){
 const ADMIN_PASSWORD = 'diangui123';
+const SCT_KEY = 'SCT363572TtABdS7u1FXjnGauV6DBV44MV';
 const services = [
   { id:'trial', name:'体验单', icon:'�', price:'¥19.9', desc:'考察技术', features:['一把最少288w','新人特惠','技术保证'] },
   { id:'extreme1', name:'极致黑奴单', icon:'💎', price:'¥29.9', desc:'一天一项 · 仅限5单', features:['一把最少388w','董事长推荐','限时优惠'] },
@@ -845,6 +846,18 @@ function saveOrders() {
   localStorage.setItem('deltaOrders', JSON.stringify(orders));
 }
 
+function sendWeChatNotification(order) {
+  const serviceName = getServiceName(order.service);
+  const title = '📋 新订单提醒 - 癫鬼俱乐部';
+  const content = `客户：${order.name}\n电话：${order.phone}\n服务：${serviceName}\n账号：${order.account || '未填写'}\n段位：${order.rank || '未填写'}\n备注：${order.note || '无'}`;
+  
+  fetch(`https://sctapi.ftqq.com/${SCT_KEY}.send`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `title=${encodeURIComponent(title)}&desp=${encodeURIComponent(content)}`
+  }).catch(() => {});
+}
+
 renderServices();
 renderGallery();
 
@@ -892,6 +905,7 @@ form.addEventListener('submit', function(e) {
   };
   orders.push(newOrder);
   saveOrders();
+  sendWeChatNotification(newOrder);
   form.style.display = 'none';
   formSuccess.classList.add('active');
 });
