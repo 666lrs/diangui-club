@@ -3,23 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>癫鬼俱乐部 | 三角洲游戏接单</title>
+<title>癫鬼俱乐部 | 超值优选订单海报</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0f;
-  --surface: #12121a;
-  --surface-light: #1a1a24;
-  --primary: #00ff88;
-  --primary-dark: #00cc6a;
+  --bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  --surface: rgba(20, 20, 30, 0.8);
+  --surface-light: rgba(30, 30, 45, 0.9);
+  --primary: #ffd700;
+  --primary-dark: #ffb700;
+  --secondary: #00ff88;
   --accent: #ff4757;
   --text: #ffffff;
-  --text-light: #8a8a9a;
-  --border: #2a2a3a;
-  --glow: 0 0 20px rgba(0,255,136,0.3);
-  --glow-accent: 0 0 20px rgba(255,71,87,0.3);
-  --radius: 12px;
+  --text-light: #a0a0b0;
+  --border: rgba(255, 215, 0, 0.2);
+  --glow: 0 0 30px rgba(255, 215, 0, 0.4);
+  --glow-accent: 0 0 20px rgba(255, 71, 87, 0.5);
+  --radius: 16px;
   --font: 'Inter', sans-serif;
   --font-display: 'Orbitron', sans-serif;
 }
@@ -31,934 +32,401 @@ body{
   color:var(--text);
   line-height:1.6;
   min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
 }
-img{display:block;max-width:100%}
-a{color:var(--primary);text-decoration:none}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-.nav{
-  position:fixed;top:0;left:0;right:0;
-  background:rgba(10,10,15,.95);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  z-index:1000;
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 24px;
-}
-.nav-logo{
-  font-family:var(--font-display);
-  font-size:1.4rem;
-  font-weight:700;
-  background:linear-gradient(135deg, var(--primary), #00ffff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{
-  font-size:.9rem;font-weight:500;color:var(--text-light);
-  transition:all .2s;position:relative;
-}
-.nav-links a:hover{color:var(--primary)}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-4px;left:0;
-  width:0;height:2px;background:var(--primary);
-  transition:width .25s;
-}
-.nav-links a:hover::after{width:100%}
-.nav-cta{
-  background:var(--primary);color:#000;
-  padding:10px 24px;border-radius:50px;
-  font-weight:600;font-size:.875rem;
-  transition:all .2s;
-}
-.nav-cta:hover{
-  background:var(--primary-dark);
-  box-shadow:var(--glow);
-  transform:translateY(-2px);
-}
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  padding-top:80px;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:radial-gradient(ellipse at 50% 50%, rgba(0,255,136,0.1) 0%, transparent 70%);
-}
-.hero-bg::before{
+body::before{
   content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background:radial-gradient(ellipse at 30% 20%, rgba(255,215,0,0.15) 0%, transparent 50%);
+  pointer-events:none;z-index:0;
 }
-.hero .container{position:relative;z-index:1}
-.hero-content{max-width:700px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(0,255,136,0.1);
-  border:1px solid rgba(0,255,136,0.3);
-  padding:8px 20px;border-radius:50px;
-  font-size:.75rem;font-weight:600;
-  color:var(--primary);
-  margin-bottom:24px;
+body::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 80%, rgba(0,255,136,0.1) 0%, transparent 50%);
+  pointer-events:none;z-index:0;
 }
-.hero h1{
+.container{max-width:1400px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.section{padding:60px 0}
+.header{text-align:center;padding:40px 0 30px}
+.header h1{
   font-family:var(--font-display);
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  font-weight:700;line-height:1.1;
-  margin-bottom:20px;
-}
-.hero h1 span{
-  background:linear-gradient(135deg, var(--primary), #00ffff);
+  font-size:2.5rem;
+  font-weight:800;
+  background:linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+  background-size:200% 200%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  animation:shimmer 3s ease infinite;
+  margin-bottom:16px;
 }
-.hero p{
-  font-size:1.1rem;color:var(--text-light);
-  max-width:500px;margin-bottom:32px;
-  line-height:1.8;
+@keyframes shimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
-.hero-stats{display:flex;gap:32px;margin-bottom:32px}
-.hero-stat{text-align:center}
-.hero-stat strong{
-  display:block;font-family:var(--font-display);
-  font-size:2.5rem;color:var(--primary);
+.header p{color:var(--text-light);font-size:1.1rem}
+.guarantee-banner{
+  display:flex;justify-content:center;gap:40px;
+  flex-wrap:wrap;
+  padding:24px;
+  background:linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,255,136,0.1));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-bottom:40px;
 }
-.hero-stat span{font-size:.85rem;color:var(--text-light)}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 32px;border-radius:8px;
-  font-weight:600;font-size:.9375rem;
-  border:none;cursor:pointer;transition:all .2s;
+.guarantee-item{
+  display:flex;align-items:center;gap:12px;
 }
-.btn-primary{
-  background:var(--primary);color:#000;
-}
-.btn-primary:hover{
-  background:var(--primary-dark);
-  box-shadow:var(--glow);
-  transform:translateY(-2px);
-}
-.btn-outline{
-  background:transparent;color:var(--primary);
-  border:2px solid var(--primary);
-}
-.btn-outline:hover{
-  background:rgba(0,255,136,0.1);
+.guarantee-item .icon{
+  width:40px;height:40px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
   box-shadow:var(--glow);
 }
-.section{padding:100px 0}
-.section-header{text-align:center;margin-bottom:64px}
-.section-tag{
-  display:inline-block;font-size:.75rem;font-weight:600;
-  color:var(--primary);text-transform:uppercase;
-  letter-spacing:.15em;margin-bottom:12px;
+.guarantee-item span{font-weight:600;color:var(--text)}
+.category{margin-bottom:48px}
+.category-title{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:24px;
+  padding-bottom:16px;
+  border-bottom:2px solid var(--border);
 }
-.section-header h2{
+.category-title .badge{
+  background:linear-gradient(135deg, var(--accent), #ff6b81);
+  padding:6px 16px;border-radius:50px;
+  font-size:.8rem;font-weight:700;color:#fff;
+  box-shadow:var(--glow-accent);
+}
+.category-title h2{
   font-family:var(--font-display);
-  font-size:clamp(1.8rem,4vw,3rem);
-  font-weight:700;margin-bottom:16px;
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--primary);
 }
-.section-header p{color:var(--text-light);max-width:500px;margin:0 auto}
-.services{background:var(--surface)}
 .services-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
   gap:24px;
 }
 .service-card{
-  background:var(--surface-light);
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:32px;
-  transition:all .3s;
+  padding:28px;
+  transition:all .3s ease;
   position:relative;
   overflow:hidden;
 }
 .service-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:linear-gradient(90deg, var(--primary), #00ffff);
-  transform:scaleX(0);transition:transform .3s;
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,215,0,0.05), transparent);
+  transition:left .5s ease;
 }
-.service-card:hover::before{transform:scaleX(1)}
 .service-card:hover{
+  transform:translateY(-8px);
   border-color:var(--primary);
   box-shadow:var(--glow);
-  transform:translateY(-4px);
 }
-.service-card .icon{
-  font-size:2.5rem;margin-bottom:16px;
+.service-card:hover::before{left:100%}
+.service-card .service-header{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:16px;
 }
-.service-card h3{
-  font-family:var(--font-display);
-  font-size:1.2rem;font-weight:600;
-  margin-bottom:8px;
+.service-card .service-icon{
+  width:50px;height:50px;
+  background:linear-gradient(135deg, rgba(255,215,0,0.2), rgba(0,255,136,0.2));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
 }
 .service-card .price{
   font-family:var(--font-display);
-  font-size:1.5rem;color:var(--primary);
-  font-weight:700;margin-bottom:12px;
-}
-.service-card .desc{color:var(--text-light);font-size:.875rem;margin-bottom:16px}
-.service-card ul{list-style:none;padding-left:0}
-.service-card li{
-  display:flex;align-items:center;gap:8px;
-  color:var(--text-light);font-size:.85rem;
-  margin-bottom:6px;
-}
-.service-card li::before{
-  content:'✓';color:var(--primary);font-size:.75rem;
-}
-.service-card .btn-order{
-  width:100%;padding:12px;background:var(--primary);
-  color:#000;border:none;border-radius:8px;
-  font-weight:600;cursor:pointer;
-  transition:all .2s;margin-top:12px;
-}
-.service-card .btn-order:hover{
-  background:var(--primary-dark);
-  box-shadow:var(--glow);
-}
-.gallery{background:var(--bg)}
-.gallery-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-.gallery-item{
-  aspect-ratio:4/3;border-radius:var(--radius);
-  overflow:hidden;position:relative;
-  cursor:pointer;transition:transform .3s;
-}
-.gallery-item:hover{transform:scale(1.03)}
-.gallery-item img{width:100%;height:100%;object-fit:cover}
-.gallery-item .overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
-  opacity:0;transition:opacity .25s;
-  display:flex;align-items:flex-end;padding:16px;
-}
-.gallery-item:hover .overlay{opacity:1}
-.gallery-item .overlay span{
-  color:#fff;font-size:.8rem;font-weight:500;
-}
-.about{background:var(--surface)}
-.about-content{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:64px;align-items:center;
-}
-.about-image{
-  position:relative;border-radius:var(--radius);
-  overflow:hidden;
-}
-.about-image img{width:100%;height:100%;object-fit:cover}
-.about-image::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(0,255,136,0.1), transparent);
-}
-.about-text h3{
-  font-family:var(--font-display);
-  font-size:1.8rem;font-weight:600;
-  margin-bottom:16px;
-}
-.about-text h3 span{color:var(--primary)}
-.about-text p{color:var(--text-light);margin-bottom:16px}
-.about-features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.about-feature{
-  display:flex;align-items:center;gap:12px;
-  padding:16px;border-radius:8px;
-  background:var(--surface-light);
-}
-.about-feature .icon{font-size:1.4rem;color:var(--primary)}
-.about-feature div strong{display:block;font-weight:600}
-.about-feature div span{font-size:.85rem;color:var(--text-light)}
-.order{background:var(--bg)}
-.order-wrapper{
-  display:grid;grid-template-columns:1fr 1.2fr;
-  gap:48px;
-}
-.order-info h3{
-  font-family:var(--font-display);
-  font-size:1.4rem;margin-bottom:16px;
-}
-.order-info p{color:var(--text-light);margin-bottom:24px}
-.order-info .info-item{
-  display:flex;align-items:flex-start;gap:12px;
-  margin-bottom:16px;
-}
-.order-info .info-item .icon{
-  width:40px;height:40px;
-  background:rgba(0,255,136,0.1);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;
-  flex-shrink:0;
-}
-.order-info .info-item div strong{display:block;font-weight:600}
-.order-info .info-item div span{color:var(--text-light);font-size:.85rem}
-.order-form{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:36px;
-}
-.form-group{margin-bottom:20px}
-.form-group label{
-  display:block;font-size:.8125rem;font-weight:600;
-  margin-bottom:8px;color:var(--text-light);
-}
-.form-group label .required{color:var(--accent)}
-.form-group input,.form-group select,.form-group textarea{
-  width:100%;padding:12px 16px;
-  background:var(--surface-light);
-  border:1px solid var(--border);
-  border-radius:8px;
-  color:var(--text);font-family:var(--font);
-  font-size:.9rem;outline:none;
-  transition:all .2s;
-}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(0,255,136,0.1);
-}
-.form-group textarea{resize:vertical;min-height:100px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.btn-submit{
-  width:100%;padding:14px;background:var(--primary);
-  color:#000;border:none;border-radius:8px;
-  font-weight:600;font-size:.9375rem;
-  cursor:pointer;transition:all .2s;
-}
-.btn-submit:hover{
-  background:var(--primary-dark);
-  box-shadow:var(--glow);
-  transform:translateY(-2px);
-}
-.form-success{display:none;text-align:center;padding:40px}
-.form-success.active{display:block}
-.form-success .check{
-  width:70px;height:70px;border-radius:50%;
-  background:rgba(0,255,136,0.1);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;font-size:2rem;color:var(--primary);
-}
-.form-success h4{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
-.form-success p{color:var(--text-light)}
-.contact{background:var(--surface)}
-.contact-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-.contact-card{
-  background:var(--surface-light);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:32px;text-align:center;
-  transition:all .2s;
-}
-.contact-card:hover{
-  border-color:var(--primary);
-  box-shadow:var(--glow);
-}
-.contact-card .icon{
-  width:56px;height:56px;
-  background:rgba(0,255,136,0.1);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;font-size:1.5rem;
-}
-.contact-card h4{font-weight:600;margin-bottom:8px}
-.contact-card p{color:var(--text-light);font-size:.875rem}
-.contact-card a{color:var(--primary);font-weight:600}
-.footer{
-  border-top:1px solid var(--border);
-  padding:48px 0;text-align:center;
-}
-.footer .logo{
-  font-family:var(--font-display);
-  font-size:1.4rem;font-weight:700;
-  background:linear-gradient(135deg, var(--primary), #00ffff);
+  font-size:1.8rem;
+  font-weight:800;
+  background:linear-gradient(135deg, var(--primary), #ffec8b);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+}
+.service-card h3{
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.service-card .features{
+  list-style:none;
+  padding-left:20px;
+  margin-bottom:20px;
+}
+.service-card .features li{
+  position:relative;
+  padding:8px 0;
+  color:var(--text-light);
+  font-size:.95rem;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.service-card .features li:last-child{border-bottom:none}
+.service-card .features li::before{
+  content:'✓';
+  position:absolute;left:-20px;
+  color:var(--secondary);
+  font-weight:700;
+}
+.service-card .btn-order{
+  width:100%;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:#000;
+  border:none;
+  padding:14px 24px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  transition:all .2s;
+}
+.service-card .btn-order:hover{
+  transform:scale(1.02);
+  box-shadow:var(--glow);
+}
+.service-card.highlight{
+  border-color:var(--accent);
+  background:linear-gradient(135deg, rgba(255,71,87,0.1), var(--surface));
+}
+.service-card.highlight::before{
+  background:linear-gradient(90deg, transparent, rgba(255,71,87,0.1), transparent);
+}
+.service-card.highlight:hover{border-color:var(--accent);box-shadow:var(--glow-accent)}
+.cta-section{
+  text-align:center;
+  padding:60px 24px;
+  background:linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,255,136,0.1));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-top:48px;
+}
+.cta-section h2{
+  font-family:var(--font-display);
+  font-size:2rem;
+  font-weight:800;
+  color:var(--primary);
   margin-bottom:16px;
 }
-.footer p{color:var(--text-light);font-size:.85rem}
-.footer-socials{display:flex;justify-content:center;gap:16px;margin-bottom:24px}
-.footer-socials a{
-  width:40px;height:40px;
-  border:1px solid var(--border);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;color:var(--text-light);
+.cta-section p{
+  color:var(--text-light);
+  font-size:1.1rem;
+  margin-bottom:24px;
+}
+.cta-phone{
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:#000;
+  padding:16px 32px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:1.2rem;
+  text-decoration:none;
   transition:all .2s;
 }
-.footer-socials a:hover{
-  border-color:var(--primary);
-  color:var(--primary);
+.cta-phone:hover{
+  transform:scale(1.05);
   box-shadow:var(--glow);
 }
-.back-top{
-  position:fixed;bottom:32px;right:32px;
-  width:48px;height:48px;
-  background:var(--primary);color:#000;
-  border:none;border-radius:50%;
-  cursor:pointer;font-size:1.2rem;
-  box-shadow:var(--glow);
-  opacity:0;visibility:hidden;
-  transform:translateY(12px);
-  transition:all .25s;
-  z-index:900;
+.footer{
+  text-align:center;
+  padding:30px 0;
+  border-top:1px solid var(--border);
+  margin-top:60px;
 }
-.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
-.back-top:hover{background:var(--primary-dark)}
-.admin-panel{
-  position:fixed;inset:0;z-index:3000;
-  background:rgba(0,0,0,.85);backdrop-filter:blur(10px);
-  display:none;align-items:center;justify-content:center;
-  padding:24px;
-}
-.admin-panel.active{display:flex}
-.admin-panel .panel-content{
-  width:100%;max-width:800px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
-}
-.admin-panel .panel-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 24px;border-bottom:1px solid var(--border);
-  background:var(--surface-light);
-}
-.admin-panel .panel-header h3{font-family:var(--font-display)}
-.admin-panel .panel-close{
-  width:32px;height:32px;border:none;background:none;
-  border-radius:8px;color:var(--text-light);
-  cursor:pointer;transition:all .2s;
-}
-.admin-panel .panel-close:hover{background:var(--border);color:var(--text)}
-.admin-panel .panel-body{padding:24px;max-height:70vh;overflow-y:auto}
-.login-form{max-width:360px;margin:0 auto;padding:40px}
-.login-form input{
-  width:100%;padding:12px 16px;margin-bottom:16px;
-  background:var(--surface-light);border:1px solid var(--border);
-  border-radius:8px;color:var(--text);
-  font-family:var(--font);outline:none;
-  transition:border-color .2s;
-}
-.login-form input:focus{border-color:var(--primary)}
-.login-form button{
-  width:100%;padding:12px;background:var(--primary);
-  color:#000;border:none;border-radius:8px;
-  font-weight:600;cursor:pointer;
-}
-.login-form .error{color:var(--accent);font-size:.8rem;text-align:center;margin-bottom:12px}
-.order-list{margin-top:16px}
-.order-item{
-  background:var(--surface-light);border:1px solid var(--border);
-  border-radius:8px;padding:16px;margin-bottom:12px;
-}
-.order-item:hover{border-color:var(--primary)}
-.order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.order-name{font-weight:600}
-.order-status{
-  padding:3px 12px;border-radius:20px;font-size:.7rem;
-}
-.order-status.pending{background:rgba(255,193,7,.2);color:#ffc107}
-.order-status.confirmed{background:rgba(0,255,136,.2);color:var(--primary)}
-.order-status.completed{background:rgba(131,96,195,.2);color:#8360c3}
-.order-info{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:.85rem;color:var(--text-light)}
-.order-info strong{color:var(--text)}
-.order-phone{font-family:monospace;color:var(--primary)}
-.order-note{
-  margin-top:12px;padding:12px;background:var(--bg);
-  border-radius:8px;font-size:.85rem;color:var(--text-light);
-}
-.order-actions{display:flex;gap:8px;margin-top:12px}
-.order-actions button{
-  padding:8px 16px;border:none;border-radius:6px;
-  font-size:.8rem;font-weight:600;cursor:pointer;
-  transition:all .2s;
-}
-.btn-confirm{background:var(--primary);color:#000}
-.btn-confirm:hover{background:var(--primary-dark)}
-.btn-complete{background:#8360c3;color:#fff}
-.btn-complete:hover{background:#6b4c9a}
-.btn-cancel{background:var(--border);color:var(--text-light)}
-.btn-cancel:hover{background:#3a3a4a}
-@media (max-width:768px){
-  .nav-links{display:none}
-  .hero-stats{gap:16px}
-  .hero-stat strong{font-size:1.8rem}
+.footer p{color:var(--text-light);font-size:.9rem}
+.footer .copyright{color:var(--text-light);font-size:.8rem;margin-top:8px}
+@media(max-width:768px){
+  .header h1{font-size:1.8rem}
+  .guarantee-banner{gap:20px}
   .services-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .about-content{grid-template-columns:1fr;gap:32px}
-  .order-wrapper{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .section{padding:60px 0}
+  .service-card .price{font-size:1.5rem}
 }
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo">癫鬼俱乐部</div>
-    <ul class="nav-links">
-      <li><a href="#services">服务项目</a></li>
-      <li><a href="#gallery">战绩展示</a></li>
-      <li><a href="#about">关于我们</a></li>
-      <li><a href="#order" class="nav-cta">立即下单</a></li>
-    </ul>
-    <button class="nav-cta" id="adminBtn">管理后台</button>
+<div class="container">
+  <div class="header">
+    <h1>🎰 超值优选订单海报</h1>
+    <p>保底保障 · 特色目标 · 放心选择</p>
   </div>
-</nav>
-
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">🎮 三角洲游戏接单</div>
-      <h1>专业团队<br><span>实力代练</span></h1>
-      <p>癫鬼俱乐部专注三角洲游戏代练服务，薄利多销，最低价格给您最好的服务！接单热线：<strong style="color:var(--primary)">134-3142-5649</strong></p>
-      <div class="hero-stats">
-        <div class="hero-stat"><strong>500+</strong><span>成功订单</span></div>
-        <div class="hero-stat"><strong>99%</strong><span>好评率</span></div>
-        <div class="hero-stat"><strong>24h</strong><span>在线接单</span></div>
-      </div>
-      <div style="margin-bottom:24px;padding:16px;background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.2);border-radius:8px">
-        <p style="font-size:.9rem;color:var(--text-light)">💡 <strong style="color:var(--primary)">主张薄利多销</strong>，用最低的价格一定给您最好的服务！</p>
-      </div>
-      <div class="hero-actions">
-        <a href="#order" class="btn btn-primary">📝 立即下单</a>
-        <a href="#services" class="btn btn-outline">查看价格</a>
-      </div>
+  
+  <div class="guarantee-banner">
+    <div class="guarantee-item">
+      <span class="icon">🔒</span>
+      <span>安全可靠</span>
+    </div>
+    <div class="guarantee-item">
+      <span class="icon">💰</span>
+      <span>保底保障</span>
+    </div>
+    <div class="guarantee-item">
+      <span class="icon">⚡</span>
+      <span>高效代打</span>
+    </div>
+    <div class="guarantee-item">
+      <span class="icon">🎯</span>
+      <span>目标必达</span>
     </div>
   </div>
-</section>
-
-<section class="section services" id="services">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Price List</div>
-      <h2>价格表</h2>
-      <p>透明定价，实力保证，不达目标不结单！</p>
+  
+  <div class="category">
+    <div class="category-title">
+      <span class="badge">保底单</span>
+      <h2>💰 保底保障系列</h2>
     </div>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</section>
-
-<section class="section gallery" id="gallery">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Gallery</div>
-      <h2>战绩展示</h2>
-      <p>真实战绩截图，实力看得见</p>
-    </div>
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </div>
-</section>
-
-<section class="section about" id="about">
-  <div class="container">
-    <div class="about-content">
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="游戏截图">
-      </div>
-      <div class="about-text">
-        <h3>为什么选择 <span>癫鬼俱乐部</span>？</h3>
-        <p>我们是一支专业的三角洲游戏代练团队，拥有丰富的游戏经验和专业的操作技巧。每一位代练都经过严格筛选和培训，确保为您提供最优质的服务。</p>
-        <div class="about-features">
-          <div class="about-feature">
-            <div class="icon">🔒</div>
-            <div><strong>安全保障</strong><span>账号安全第一</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">⚡</div>
-            <div><strong>高效快捷</strong><span>极速完成订单</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">💰</div>
-            <div><strong>价格透明</strong><span>无隐藏收费</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">🎯</div>
-            <div><strong>精准定位</strong><span>专业技术团队</span></div>
-          </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🎁</span>
+          <span class="price">¥35.9</span>
         </div>
+        <h3>绝密体验单</h3>
+        <ul class="features">
+          <li>300W-2588W保底</li>
+          <li>新人专享体验</li>
+          <li>灵活上分</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
+      </div>
+      
+      <div class="service-card highlight">
+        <div class="service-header">
+          <span class="service-icon">📸</span>
+          <span class="price">¥62.8</span>
+        </div>
+        <h3>绝密款图单</h3>
+        <ul class="features">
+          <li>清图有效</li>
+          <li>450W赠礼</li>
+          <li>精美战绩</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🎯</span>
+          <span class="price">¥68.8</span>
+        </div>
+        <h3>单局560W保底单</h3>
+        <ul class="features">
+          <li>单局560W保底</li>
+          <li>未达标保底1亿</li>
+          <li>超高性价比</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">💎</span>
+          <span class="price">¥118.8</span>
+        </div>
+        <h3>千W绝密单</h3>
+        <ul class="features">
+          <li>1000W稳定保底</li>
+          <li>高胜率保障</li>
+          <li>VIP专属服务</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
       </div>
     </div>
   </div>
-</section>
-
-<section class="section order" id="order">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Order</div>
-      <h2>在线下单</h2>
-      <p>填写以下信息，我们会在10分钟内与您联系确认订单</p>
+  
+  <div class="category">
+    <div class="category-title">
+      <span class="badge">特色单</span>
+      <h2>🎯 特色指定目标单</h2>
     </div>
-    <div class="order-wrapper">
-      <div class="order-info">
-        <h3>下单须知</h3>
-        <p>为了确保您的订单顺利完成，请仔细阅读以下注意事项</p>
-        <div class="info-item">
-          <div class="icon">🎮</div>
-          <div><strong>账号安全</strong><span>请确保账号已开启安全保护，我们承诺不会泄露任何账号信息</span></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🚀</span>
+          <span class="price">¥168</span>
         </div>
-        <div class="info-item">
-          <div class="icon">⏱️</div>
-          <div><strong>完成时间</strong><span>根据订单难度，通常24-72小时内完成</span></div>
-        </div>
-        <div class="info-item">
-          <div class="icon">💰</div>
-          <div><strong>支付方式</strong><span>支持微信、支付宝、QQ支付</span></div>
-        </div>
-        <div class="info-item">
-          <div class="icon">📞</div>
-          <div><strong>联系方式</strong><span>接单电话：13431425649</span></div>
-        </div>
+        <h3>火箭燃料单</h3>
+        <ul class="features">
+          <li>目标: 火箭燃料</li>
+          <li>保底1314W</li>
+          <li>稀有道具保障</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
       </div>
-      <div class="order-form">
-        <form id="orderForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label>您的称呼 <span class="required">*</span></label>
-              <input type="text" name="name" placeholder="请输入您的称呼" required>
-            </div>
-            <div class="form-group">
-              <label>联系电话 <span class="required">*</span></label>
-              <input type="tel" name="phone" placeholder="请输入手机号" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>选择服务 <span class="required">*</span></label>
-            <select name="service" required>
-              <option value="">— 请选择服务类型 —</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>游戏账号</label>
-            <input type="text" name="account" placeholder="请输入游戏账号（选填）">
-          </div>
-          <div class="form-group">
-            <label>段位信息</label>
-            <input type="text" name="rank" placeholder="当前段位/目标段位">
-          </div>
-          <div class="form-group">
-            <label>备注信息</label>
-            <textarea name="note" placeholder="请描述您的具体需求..."></textarea>
-          </div>
-          <button type="submit" class="btn-submit">提交订单</button>
-        </form>
-        <div class="form-success" id="formSuccess">
-          <div class="check">✓</div>
-          <h4>订单提交成功！</h4>
-          <p>感谢您的信任，我们会在10分钟内通过电话与您联系确认订单详情 🎮</p>
+      
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🥇</span>
+          <span class="price">¥68</span>
         </div>
+        <h3>三相同小金单</h3>
+        <ul class="features">
+          <li>目标: 3个相同小金</li>
+          <li>未完成持续代打</li>
+          <li>直到完成目标</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">❤️</span>
+          <span class="price">¥58.8</span>
+        </div>
+        <h3>专属小红单</h3>
+        <ul class="features">
+          <li>目标: 1个小红</li>
+          <li>未出一直代打</li>
+          <li>专属追踪服务</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
+      </div>
+      
+      <div class="service-card highlight">
+        <div class="service-header">
+          <span class="service-icon">☕</span>
+          <span class="price">¥99</span>
+        </div>
+        <h3>高级咖啡豆单</h3>
+        <ul class="features">
+          <li>目标: 高级咖啡豆</li>
+          <li>保底600W+</li>
+          <li>持续代打保障</li>
+        </ul>
+        <button class="btn-order">立即下单</button>
       </div>
     </div>
   </div>
-</section>
-
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Contact</div>
-      <h2>联系我们</h2>
-      <p>有任何问题欢迎随时联系我们</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="icon">📞</div>
-        <h4>联系电话</h4>
-        <p><a href="tel:13431425649">134-3142-5649</a></p>
-      </div>
-      <div class="contact-card">
-        <div class="icon">💬</div>
-        <h4>微信</h4>
-        <p>DianGui_Club</p>
-      </div>
-      <div class="contact-card">
-        <div class="icon">📅</div>
-        <h4>服务时间</h4>
-        <p>24小时在线接单</p>
-      </div>
-    </div>
+  
+  <div class="cta-section">
+    <h2>📞 联系我们</h2>
+    <p>接单电话：134-3142-5649</p>
+    <a href="tel:13431425649" class="cta-phone">
+      <span>📱</span>
+      <span>立即拨打电话</span>
+    </a>
   </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-socials">
-    <a href="#" aria-label="微信">💬</a>
-    <a href="#" aria-label="QQ">💻</a>
-    <a href="#" aria-label="抖音">🎵</a>
-    <a href="#" aria-label="微博">📱</a>
-  </div>
-  <div class="logo">癫鬼俱乐部</div>
-  <p>&copy; 2026 癫鬼俱乐部 · 专业三角洲游戏代练</p>
-</footer>
-
-<button class="back-top" id="backTop">↑</button>
-
-<div class="admin-panel" id="adminPanel">
-  <div class="panel-content">
-    <div class="panel-header">
-      <h3>📋 订单管理</h3>
-      <button class="panel-close" id="adminClose">&times;</button>
-    </div>
-    <div class="panel-body" id="adminBody">
-      <div class="login-form" id="loginForm">
-        <h3 style="text-align:center;margin-bottom:24px;color:#fff">管理员登录</h3>
-        <div class="error" id="loginError"></div>
-        <input type="password" id="adminPassword" placeholder="请输入密码" autocomplete="off">
-        <button id="loginBtn">登录</button>
-      </div>
-    </div>
+  
+  <div class="footer">
+    <p>活动最终解释权归商家所有</p>
+    <p class="copyright">© 2024 癫鬼俱乐部 | 三角洲游戏接单</p>
   </div>
 </div>
-
 <script>
-(function(){
-const ADMIN_PASSWORD = 'diangui123';
-const SCT_KEY = 'SCT363572TtABdS7u1FXjnGauV6DBV44MV';
-const services = [
-  { id:'trial', name:'体验单', icon:'�', price:'¥19.9', desc:'考察技术', features:['一把最少288w','新人特惠','技术保证'] },
-  { id:'extreme1', name:'极致黑奴单', icon:'💎', price:'¥29.9', desc:'一天一项 · 仅限5单', features:['一把最少388w','董事长推荐','限时优惠'] },
-  { id:'extreme2', name:'极致黑奴单', icon:'💎', price:'¥39.9', desc:'一天一项 · 仅限5单', features:['一把最少488w','董事长推荐','超值之选'] },
-  { id:'tech1', name:'技术黑奴单', icon:'⚡', price:'¥38.8', desc:'技术保障 · 不达不结', features:['一把最少420w','没达到不结单','技术过硬'] },
-  { id:'tech2', name:'技术黑奴单', icon:'⚡', price:'¥48.8', desc:'技术保障 · 不达不结', features:['一把最少520w','没达到不结单','实力保证'] },
-  { id:'fun1', name:'娱乐黑奴单', icon:'🎲', price:'¥100', desc:'必出道具 · 保底保障', features:['必出一个锅','不然打1000w保底','娱乐首选'] },
-  { id:'fun2', name:'娱乐黑奴单', icon:'�', price:'¥200', desc:'必出道具 · 保底保障', features:['必出一个油','不然打1888w保底','超值保底'] },
-  { id:'custom', name:'自定义单', icon:'🎮', price:'面议', desc:'说出您想要的玩法', features:['灵活定制','按难度定价','专属服务'] },
-];
-const gallery = [
-  { url:'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80', label:'段位截图' },
-  { url:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80', label:'胜利时刻' },
-  { url:'https://images.unsplash.com/photo-1528164344705-47542687000d?w=400&q=80', label:'战绩展示' },
-  { url:'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80', label:'荣耀时刻' },
-];
-
-let orders = JSON.parse(localStorage.getItem('deltaOrders') || '[]');
-
-function renderServices() {
-  const grid = document.getElementById('servicesGrid');
-  grid.innerHTML = services.map(s => `
-    <div class="service-card">
-      <div class="icon">${s.icon}</div>
-      <h3>${s.name}</h3>
-      <div class="price">${s.price}</div>
-      <div class="desc">${s.desc}</div>
-      <ul>
-        ${s.features.map(f => `<li>${f}</li>`).join('')}
-      </ul>
-      <button class="btn-order" data-service="${s.id}">选择此服务</button>
-    </div>
-  `).join('');
-}
-
-function renderGallery() {
-  const grid = document.getElementById('galleryGrid');
-  grid.innerHTML = gallery.map((g, i) => `
-    <div class="gallery-item">
-      <img src="${g.url}" alt="${g.label}">
-      <div class="overlay"><span>${g.label}</span></div>
-    </div>
-  `).join('');
-}
-
-function renderOrders() {
-  const adminBody = document.getElementById('adminBody');
-  if(orders.length === 0) {
-    adminBody.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-light)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:64px;height:64px;margin:0 auto 16px;opacity:.3">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polyline points="8 12 12 16 16 12"></polyline>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-      </svg>
-      <p>暂无订单</p>
-    </div>`;
-    return;
-  }
-  const sortedOrders = [...orders].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  adminBody.innerHTML = `<div class="order-list">
-    ${sortedOrders.map(order => `
-      <div class="order-item">
-        <div class="order-header">
-          <span class="order-name">${order.name}</span>
-          <span class="order-status ${order.status}">${getStatusText(order.status)}</span>
-        </div>
-        <div class="order-info">
-          <span><strong>服务:</strong> ${getServiceName(order.service)}</span>
-          <span><strong>电话:</strong> <span class="order-phone">${order.phone}</span></span>
-          ${order.account ? `<span><strong>账号:</strong> ${order.account}</span>` : ''}
-          ${order.rank ? `<span><strong>段位:</strong> ${order.rank}</span>` : ''}
-        </div>
-        ${order.note ? `<div class="order-note">📝 ${order.note}</div>` : ''}
-        <div class="order-actions">
-          ${order.status === 'pending' ? `<button class="btn-confirm" data-id="${order.id}">确认订单</button>` : ''}
-          ${order.status !== 'completed' ? `<button class="btn-complete" data-id="${order.id}">完成订单</button>` : ''}
-          <button class="btn-cancel" data-id="${order.id}">取消订单</button>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
-
-  document.querySelectorAll('.btn-confirm').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const id = this.dataset.id;
-      orders = orders.map(o => o.id === id ? {...o, status: 'confirmed'} : o);
-      saveOrders();
-      renderOrders();
-    });
-  });
-  document.querySelectorAll('.btn-complete').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const id = this.dataset.id;
-      orders = orders.map(o => o.id === id ? {...o, status: 'completed'} : o);
-      saveOrders();
-      renderOrders();
-    });
-  });
-  document.querySelectorAll('.btn-cancel').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const id = this.dataset.id;
-      orders = orders.map(o => o.id === id ? {...o, status: 'cancelled'} : o);
-      saveOrders();
-      renderOrders();
-    });
-  });
-}
-
-function getStatusText(status) {
-  const texts = {
-    pending: '待确认',
-    confirmed: '已确认',
-    completed: '已完成',
-    cancelled: '已取消'
-  };
-  return texts[status] || status;
-}
-
-function getServiceName(serviceId) {
-  const service = services.find(s => s.id === serviceId);
-  return service ? service.name : serviceId;
-}
-
-function saveOrders() {
-  localStorage.setItem('deltaOrders', JSON.stringify(orders));
-}
-
-function sendWeChatNotification(order) {
-  const serviceName = getServiceName(order.service);
-  const title = '📋 新订单提醒 - 癫鬼俱乐部';
-  const content = `客户：${order.name}\n电话：${order.phone}\n服务：${serviceName}\n账号：${order.account || '未填写'}\n段位：${order.rank || '未填写'}\n备注：${order.note || '无'}`;
-  
-  fetch(`https://sctapi.ftqq.com/${SCT_KEY}.send`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `title=${encodeURIComponent(title)}&desp=${encodeURIComponent(content)}`
-  }).catch(() => {});
-}
-
-renderServices();
-renderGallery();
-
-const sel = document.querySelector('select[name="service"]');
-services.forEach(s => {
-  const o = document.createElement('option');
-  o.value = s.id;
-  o.textContent = `${s.name} ${s.price}`;
-  sel.appendChild(o);
-});
-
 document.querySelectorAll('.btn-order').forEach(btn => {
   btn.addEventListener('click', function() {
-    const id = this.dataset.service;
-    sel.value = id;
-    document.getElementById('order').scrollIntoView({behavior: 'smooth'});
+    alert('感谢您的信任！请拨打 134-3142-5649 联系我们下单！');
   });
 });
-
-const form = document.getElementById('orderForm');
-const formSuccess = document.getElementById('formSuccess');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const fd = new FormData(form);
-  let valid = true;
-  form.querySelectorAll('[required]').forEach(el => {
-    if(!fd.get(el.name)) {
-      valid = false;
-      el.style.borderColor = '#ff4757';
-    } else {
-      el.style.borderColor = '';
-    }
-  });
-  if(!valid) return;
-  const newOrder = {
-    id: 'order-' + Date.now(),
-    name: fd.get('name'),
-    phone: fd.get('phone'),
-    service: fd.get('service'),
-    account: fd.get('account'),
-    rank: fd.get('rank'),
-    note: fd.get('note'),
-    status: 'pending',
-    createdAt: new Date().toISOString()
-  };
-  orders.push(newOrder);
-  saveOrders();
-  sendWeChatNotification(newOrder);
-  form.style.display = 'none';
-  formSuccess.classList.add('active');
-});
-
-const backTop = document.getElementById('backTop');
-window.addEventListener('scroll', function() {
-  backTop.classList.toggle('visible', window.scrollY > 400);
-});
-backTop.addEventListener('click', function() {
-  window.scrollTo({top: 0, behavior: 'smooth'});
-});
-
-const adminBtn = document.getElementById('adminBtn');
-const adminPanel = document.getElementById('adminPanel');
-const adminClose = document.getElementById('adminClose');
-const loginForm = document.getElementById('loginForm');
-const loginBtn = document.getElementById('loginBtn');
-const adminPassword = document.getElementById('adminPassword');
-const loginError = document.getElementById('loginError');
-
-adminBtn.addEventListener('click', function() {
-  adminPanel.classList.add('active');
-  document.body.style.overflow = 'hidden';
-});
-
-adminClose.addEventListener('click', closeAdmin);
-adminPanel.addEventListener('click', function(e) {
-  if(e.target === adminPanel) closeAdmin();
-});
-
-function closeAdmin() {
-  adminPanel.classList.remove('active');
-  document.body.style.overflow = '';
-  loginForm.style.display = 'block';
-  adminPassword.value = '';
-  loginError.textContent = '';
-}
-
-loginBtn.addEventListener('click', function() {
-  if(adminPassword.value === ADMIN_PASSWORD) {
-    loginError.textContent = '';
-    loginForm.style.display = 'none';
-    renderOrders();
-  } else {
-    loginError.textContent = '密码错误';
-    adminPassword.value = '';
-  }
-});
-
-adminPassword.addEventListener('keyup', function(e) {
-  if(e.key === 'Enter') loginBtn.click();
-});
-})();
 </script>
 </body>
 </html>
