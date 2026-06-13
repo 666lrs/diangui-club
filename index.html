@@ -245,6 +245,33 @@ body::after{
 }
 .footer p{color:var(--text-light);font-size:.9rem}
 .footer .copyright{color:var(--text-light);font-size:.8rem;margin-top:8px}
+.qrcode-section{
+  margin-top:40px;
+  padding-top:30px;
+  border-top:1px solid var(--border);
+}
+.qrcode-section h3{
+  font-size:1.2rem;
+  color:var(--primary);
+  margin-bottom:20px;
+}
+.qrcode-container{
+  display:inline-block;
+  background:#fff;
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.qrcode-img{
+  display:block;
+  width:200px;
+  height:200px;
+}
+.qrcode-tip{
+  margin-top:16px;
+  color:var(--text-light);
+  font-size:.9rem;
+}
 @media(max-width:768px){
   .header h1{font-size:1.8rem}
   .guarantee-banner{gap:20px}
@@ -414,6 +441,13 @@ body::after{
       <span>📱</span>
       <span>立即拨打电话</span>
     </a>
+    <div class="qrcode-section">
+      <h3>扫码访问网站</h3>
+      <div class="qrcode-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://666lrs.github.io/diangui-club/" alt="网站二维码" class="qrcode-img">
+      </div>
+      <p class="qrcode-tip">长按识别或扫描二维码</p>
+    </div>
   </div>
   
   <div class="footer">
